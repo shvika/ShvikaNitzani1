@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ShvikaNitzani1.Models.OnlineOrder>
+
+
+
+<div class="table table-striped">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WebSite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeliveryTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MadeByUser)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WebSite)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MadeByUser)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete Item", "DeleteOrder", "Orders", new { OnlineOrderId = item.OnlineOrderId  }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

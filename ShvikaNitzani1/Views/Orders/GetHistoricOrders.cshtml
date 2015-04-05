@@ -1,0 +1,30 @@
+﻿@model ShvikaNitzani1.Models.OrderStatusSelectionViewModel
+@{
+    ViewBag.Title = "My Orders";
+}
+
+@using (Html.BeginForm("DisplayOrdersByStatus", "Orders", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+<h2>  @Html.DisplayNameFor(m => m.requestedStatus) </h2>
+    <div class="form-group">
+        
+        <div class="col-md-offset-1 col-md-2">
+
+            @Html.DropDownListFor(m => m.requestedStatus, new SelectList(Model.OrderStatusSelectionOptions,
+                                                "OrderStatusId", "name",
+                                    Model.OrderStatusSelectionOptions.First().OrderStatusId))
+        </div>
+            
+        
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-1 col-md-2">
+            <input type="submit" class="btn btn-default" value="Go"  />
+        </div>
+    </div>
+}
+
+@*@Html.Partial("_OrdersPartial")*@
+  
+@*<h1>Orders for user @Model.User.FirstName @Model.User.LastName :</h1><br />*@
+

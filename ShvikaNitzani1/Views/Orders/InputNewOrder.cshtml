@@ -1,0 +1,38 @@
+﻿@model ShvikaNitzani1.Models.NewOrderInputViewModel
+@{
+    ViewBag.Title = "Create a New Order";
+}
+
+@using (Html.BeginForm("SumbitNewOrder", "Orders", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h2>Create a new shopping request</h2>
+    <hr />
+    @Html.ValidationSummary( "Please correct the required field[s] and press the Submit button")
+    
+    @*<div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            <b>@Html.ValidationMessageFor(m => m.UserName)</b>
+        </div>
+    </div>*@
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.ItemDescription, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ItemDescription, new { @class = "form-control" })
+            <b>@Html.ValidationMessageFor(m => m.ItemDescription)</b>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Submit Order" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
